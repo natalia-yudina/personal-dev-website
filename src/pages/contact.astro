@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title="Contact"
+  description={`Get in touch with ${site.name} — email and social links.`}
+>
+  <h1>Contact</h1>
+  <p class="contact-intro">
+    Have a question, opportunity, or just want to say hello? I'd love to hear from you.
+    The fastest way to reach me is by email.
+  </p>
+
+  <div class="contact-methods">
+    <div class="contact-card">
+      <h3>Email</h3>
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+    </div>
+
+    <div class="contact-card">
+      <h3>Social</h3>
+      <ul class="social-links">
+        <li>
+          <a href={site.social.github} target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href={site.social.x} target="_blank" rel="noopener noreferrer">
+            X
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</BaseLayout>

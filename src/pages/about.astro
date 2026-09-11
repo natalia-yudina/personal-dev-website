@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+const skills = [
+  'TypeScript',
+  'JavaScript',
+  'Python',  
+  '.NET',
+  'C#',
+  'AWS',
+  'HTML & CSS',
+  'Git',
+  'SQL',  
+  'REST APIs',
+];
+
+const experience = [
+  {
+    role: 'Intermediate Backend Developer',
+    company: 'ZOZO New Zealand',
+    period: '2023 — 2024',
+    description: 'Moved snapshotting process to the cloud using AWS EC2, Lambda, ECS, ECR.',
+  },
+  {
+    role: 'Junior Fullstack Developer',
+    company: 'Adminis NZ',
+    period: '2021 — 2023',
+    description: 'Contributed to user profile features, bug fixes, and code reviews.',
+  },
+];
+---
+
+<BaseLayout
+  title="About"
+  description={`Learn more about ${site.name} — background, skills, and experience.`}
+>
+  <h1>About me</h1>
+  <div class="about-content">
+    <p>
+      I'm a software developer who enjoys turning complex problems into simple, elegant
+      solutions. I care about clean code, accessible interfaces, and tools that feel good
+      to use.
+    </p>
+    <p>
+      When I'm not coding, you'll find me walking on the trails.
+    </p>
+  </div>
+
+  <section class="section" aria-labelledby="skills-heading">
+    <h2 id="skills-heading">Skills</h2>
+    <div class="skills-grid" role="list">
+      {skills.map((skill) => (
+        <span class="tag" role="listitem">{skill}</span>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="experience-heading">
+    <h2 id="experience-heading">Experience</h2>
+    <ul class="experience-list">
+      {
+        experience.map((item) => (
+          <li class="experience-item">
+            <h3>{item.role}</h3>
+            <p class="experience-meta">
+              {item.company} · {item.period}
+            </p>
+            <p>{item.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

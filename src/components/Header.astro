@@ -1,0 +1,30 @@
+---
+import { navLinks, site } from '../data/site';
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="/">{site.name}</a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-list">
+        {
+          navLinks.map(({ href, label }) => {
+            const normalizedHref = href === '/' ? '/' : href.replace(/\/$/, '');
+            const isCurrent =
+              currentPath === normalizedHref ||
+              (normalizedHref !== '/' && currentPath.startsWith(normalizedHref));
+            return (
+              <li>
+                <a href={href} aria-current={isCurrent ? 'page' : undefined}>
+                  {label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
