@@ -6,7 +6,34 @@ A fast, modern personal website built with [Astro](https://astro.build).
 
 - **Home** — intro and call to action
 - **About** — bio, skills, experience
-- **Contact** — social links
+- **Contact** — email and social links
+
+```mermaid
+flowchart TD
+  visitor[Visitor]
+  home["Home /"]
+  about["About /about"]
+  contact["Contact /contact"]
+  layout[BaseLayout]
+  header[Header]
+  footer[Footer]
+  seo[SEO]
+  siteData["site.ts"]
+
+  visitor --> home
+  visitor --> about
+  visitor --> contact
+  home --> layout
+  about --> layout
+  contact --> layout
+  layout --> header
+  layout --> footer
+  layout --> seo
+  header --> siteData
+  footer --> siteData
+  seo --> siteData
+  contact --> siteData
+```
 
 ## Getting started
 
